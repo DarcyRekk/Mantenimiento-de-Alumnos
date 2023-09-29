@@ -1,0 +1,86 @@
+﻿@model AlumnosListViewModel;
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Mantenimiento de Alumnos</h1>
+<table class="table">
+    <thead>
+            <th>ID</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>DNI</th>
+            <th>Fecha de nacimiento</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>Nombre de contacto</th>
+            <th>Numero de contacto</th>
+            <th>Editar o Eliminar</th> 
+    </thead>
+    <tbody>
+        @foreach(var item in Model.List)
+        {
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    @item.Apellido
+                </td>
+                <td>
+                    @item.DNI
+                </td>
+                <td>
+                    @item.FechaNacimiento
+                </td>
+                <td>
+                    @item.Correo
+                </td>
+                <td>
+                    @item.Celular
+                </td>
+                <td>
+                    @item.NombreContacto
+                </td>
+                <td>
+                    @item.TelefonoContacto
+                </td>
+                <td>            
+                    <a class="btn btn-danger" onclick="DeleteAlumnos(@item.ID)"><i class="fa-solid fa-trash"></i></a>
+                    <a class="btn btn-success" asp-controller="Alumnos" asp-action="Edit" asp-route-id="@item.ID"><i class="fa-solid fa-edit"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="md-12">
+        <a class="btn btn-primary" asp-action="Add" asp-controller="Alumnos">
+            Añadir Nuevo Alumno
+        </a>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            new DataTable('#tbl');
+        });
+        const DeleteAlumnos = (id) => {
+            if (!confirm("¿Desea eliminar al alumno de la base de datos?")) return;
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("DeleteAlumnos","Alumnos")' + '/' + id,
+                success: function (data) {
+                    alert(data);
+                    window.location.href = window.location.href;
+                },
+                error: function () {
+                    alert('Sucedió un problema, y el archivo no se ha eliminado');
+                }
+            });
+        };
+    </script>
+    }

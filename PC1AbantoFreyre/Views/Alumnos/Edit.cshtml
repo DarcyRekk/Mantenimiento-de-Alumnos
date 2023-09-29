@@ -1,0 +1,87 @@
+﻿@model AlumnosViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Información del Alumno</h1>
+<div class="row mt-5">
+    <form method="post" asp-action="EditSaved" style="width:100%">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="ID"></label>
+                    <input type="text" asp-for="ID" class="form-control" readonly="true" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="Nombre"></label>
+                    <input type="text" asp-for="Nombre" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Apellido"></label>
+                    <input type="text" asp-for="Apellido" class="form-control" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label asp-for="DNI"></label>
+                    <input type="text" asp-for="DNI" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label asp-for="FechaNacimiento"></label>
+                    <input type="text" asp-for="FechaNacimiento" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label asp-for="Correo"></label>
+                    <input type="text" asp-for="Correo" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label asp-for="Celular"></label>
+                    <input type="text" asp-for="Celular" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label asp-for="NombreContacto"></label>
+                    <input type="text" asp-for="NombreContacto" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label asp-for="TelefonoContacto"></label>
+                    <input type="text" asp-for="TelefonoContacto" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row mt-3">
+
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">
+                        Actualizar
+                    </button>
+                    <a class="btn btn-secondary">
+                        Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
